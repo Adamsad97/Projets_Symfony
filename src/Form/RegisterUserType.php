@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,19 +18,56 @@ class RegisterUserType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class,[
-                'label' => 'Votre adresse email'
+                'label' => 'Votre adresse email',
+                'attr' => [
+                    'placeholder' => 'Entrez votre adresse email'
+                ]
             ])
-            ->add('password', passwordType::class, [
-                'label' => 'Votre mot de passe'
-            ])
+
+        ->add('plainPassword', RepeatedType::class, [
+            'type' => PasswordType::class,
+            'first_options'  => [
+                'label' => 'Votre mot de passe',
+                'attr' => [
+                    'placeholder' => 'Entrez votre mot de passe'
+                ],
+                'hash_property_path' => 'password'],
+
+            'second_options' => [
+                'label' => 'Confirmez votre mot de passe',
+                'attr' => [
+                    'placeholder' => 'Confirmez votre mot de passe'
+                ]
+                ],
+            'mapped' => false,
+        ])
+
+
+
+
+
+
+
+
+
             ->add('firstname', TextType::class, [
-                'label' => 'Votre prénom'
+                'label' => 'Votre prénom',
+                'attr' => [
+                    'placeholder' => 'Entrez votre mot de prénom'
+                ]
             ])
             ->add('lastname', TextType::class, [
-                'label' => 'Votre nom'])
+                'label' => 'Votre nom',
+                'attr' => [
+                    'placeholder' => 'Entrez votre nom'
+                ]
+            ])
 
             ->add('submit', SubmitType::class, [
-                'label' => 'Valider'
+                'label' => 'Valider',
+                'attr' => [
+                    'class' => 'btn btn-success'
+                ]
             ])
         ;
     }
