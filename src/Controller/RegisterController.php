@@ -20,8 +20,8 @@ final class RegisterController extends AbstractController
 
         $form->handleRequest($request); //Ecoute la request que l'utilisateur soumet dans le formulaire
 
-        if($form->isSubmitted() && $form->isValid()){
-         // dd($form->getData());
+        if($form->isSubmitted() && $form->isValid()){  //Si le formulaire le formulaire est soumis et valide, alors:
+         //dd($form->getData()); //Pour débugguer
             //dd($user);
           $entityManager->persist($user); //pour figer les données
           $entityManager->flush(); //pour rengistrer les données
