@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<div class="container card shadow-sm p-4 my-form-bg my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow border rounded  bg-light">
+                <div class="card-header text-center">
+                        <h2 class="mb-4 text-center">Inscription</h2>
+                        {{ form_start(registerform ) }}
+                            {{ form_widget(registerform ) }}
+                            Vous avez déjà un compte ? <a href="{{ path('app_login') }}">Connectez-vous</a>
+                        {{ form_end(registerform ) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
