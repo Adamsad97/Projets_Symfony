@@ -1,5 +1,57 @@
-{% extends'base.html.twig' %}
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur Social Media{% endblock %}
 
 {% block body %}
-    
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+                <h1 class="display-4 fw-bold mb-3">Bienvenue sur <span class="text-primary">Social Media</span></h1>
+                <p class="lead mb-4">
+                    Partagez vos idées, découvrez de nouvelles publications et échangez avec la communauté.<br>
+                    Rejoignez-nous dès maintenant pour vivre une expérience sociale unique !
+                </p>
+                <a href="{{ path('app_publication') }}" class="btn btn-primary btn-lg">
+                    Voir les publications
+                </a>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80"
+                     alt="Social Media" class="img-fluid rounded shadow-lg" style="max-height: 350px;">
+            </div>
+        </div>
+        <hr class="my-5">
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <i data-feather="users" class="mb-3" style="width:40px;height:40px;color:#0D6EFD"></i>
+                        <h5 class="card-title">Communauté active</h5>
+                        <p class="card-text">Des centaines d’utilisateurs partagent et commentent chaque jour.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <i data-feather="message-circle" class="mb-3" style="width:40px;height:40px;color:#0D6EFD"></i>
+                        <h5 class="card-title">Échanges facilités</h5>
+                        <p class="card-text">Commentez, réagissez et discutez facilement avec les autres membres.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <i data-feather="star" class="mb-3" style="width:40px;height:40px;color:#0D6EFD"></i>
+                        <h5 class="card-title">Fonctionnalités modernes</h5>
+                        <p class="card-text">Profitez d’une interface intuitive et de fonctionnalités innovantes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        feather.replace();
+    </script>
 {% endblock %}
